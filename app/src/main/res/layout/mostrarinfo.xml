@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize"
+    android:padding="30dp"
+    android:background="#FFF8FB">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:elevation="10dp"
+        android:padding="25dp"
+        android:layout_margin="18dp"
+        android:layout_gravity="center_horizontal"
+        android:clipToOutline="true">
+
+        <ImageView
+            android:id="@+id/imgProductoDetalle"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_foreground" />
+
+        <TextView
+            android:id="@+id/tvNombreDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre del producto"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/tvTipoDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo"
+            android:textSize="18sp"
+            android:textColor="#444"
+            android:gravity="center"
+            android:layout_marginTop="6dp" />
+
+        <TextView
+            android:id="@+id/tvCantidadDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cantidad"
+            android:textSize="18sp"
+            android:textColor="#444"
+            android:gravity="center"
+            android:layout_marginTop="6dp" />
+
+        <TextView
+            android:id="@+id/tvCategoriaDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Categoría"
+            android:textSize="18sp"
+            android:textColor="#444"
+            android:gravity="center"
+            android:layout_marginTop="6dp" />
+
+        <TextView
+            android:id="@+id/tvInfoCategoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="15sp"
+            android:textColor="#555"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+        <!-- 🔵 BOTÓN ABRIR WEB -->
+        <Button
+            android:id="@+id/btnAbrirWeb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Abrir Web"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#2196F3"
+            android:textColor="@android:color/white"
+            android:padding="12dp" />
+
+        <!-- 🟢 BOTÓN COMPARTIR WHATSAPP -->
+        <Button
+            android:id="@+id/btnCompWhats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Compartir por WhatsApp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@android:color/white"
+            android:padding="12dp" />
+
+    </LinearLayout>
+</ScrollView>
