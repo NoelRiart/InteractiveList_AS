@@ -3,18 +3,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/optOpc1"
-        android:icon="@android:drawable/btn_star_big_on"
-        android:title="Opcio 1"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/optJoc"
+        android:icon="@drawable/carnepicada"
+        android:title="Joc"
+        app:showAsAction="withText" />
     <item
-        android:id="@+id/optOpc2"
-        android:icon="@android:drawable/btn_star"
-        android:title="Opcio 2"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/optCarns"
+        android:icon="@drawable/carnepicada"
+        android:title="Carns"
+        app:showAsAction="withText" />
     <item
-        android:id="@+id/optOpc3"
+        android:id="@+id/optVerduras"
         android:icon="@android:drawable/ic_input_add"
-        android:title="Opcio 3"
+        android:title="Verduras"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/optFrutas"
+        android:title="Frutas" />
+    <item
+        android:id="@+id/optTodos"
+        android:title="Todos" />
 </menu>

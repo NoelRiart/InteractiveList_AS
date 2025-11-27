@@ -58,6 +58,8 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView imagen;
         TextView tvNombre, tvTipo, tvCantidad, tvCategoria;
+        private ArrayList<Item> items;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,5 +78,10 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
                 }
             });
         }
+        public void updateList(ArrayList<Item> nuevaLista) {
+            this.items = nuevaLista;
+            notifyDataSetChanged();
+        }
+
     }
 }

@@ -16,27 +16,37 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements RvAdapter.OnItemClickListener {
 
+    RecyclerView rc;
+    RvAdapter mAdapter;
+    private ArrayList<Item> allItems = DataItem.getItems();
 
-    private ArrayList<Item> items;
+    private ArrayList<Item> visibleItems;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        items = DataItem.getItems();
-
-        RecyclerView rc = findViewById(R.id.rvItems);
+        rc = findViewById(R.id.rvItems);
         rc.setHasFixedSize(true);
         rc.setLayoutManager(new LinearLayoutManager(this));
 
-        RvAdapter mAdapter = new RvAdapter(this, items, this);
+        visibleItems = allItems;
+        createList(visibleItems);
+
+    }
+
+    public void createList(ArrayList<Item> i) {
+
+
+        mAdapter = new RvAdapter(this, i, this);
         rc.setAdapter(mAdapter);
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
 
@@ -46,15 +56,49 @@ public class MainActivity extends AppCompatActivity implements RvAdapter.OnItemC
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-       if(item.getItemId()== R.id.optOpc1){
-           Toast.makeText(MainActivity.this, "opcio1", Toast.LENGTH_SHORT).show();
-       }
+        int id = item.getItemId();
+        ArrayList<Item> listItem = new ArrayList<>();
+
+
+        if (id == R.id.optFrutas) {
+            for (Item i : allItems) {
+                if (i.getCategoria().equals("Fruta")) {
+                    listItem.add(i);
+
+                }
+            }
+        } else if (id == R.id.optVerduras) {
+            for (Item i : allItems) {
+                if (i.getCategoria().equals("Verdura")) {
+                    listItem.add(i);
+                }
+            }
+        } else if (id == R.id.optCarns) {
+            for (Item i : allItems) {
+                if (i.getCategoria().equals("Carne")) {
+                    listItem.add(i);
+                }
+            }
+        } else if (id == R.id.optJoc) {
+            Intent intent = new Intent(MainActivity.this, Juego.class);
+            startActivity(intent);
+            return true;
+
+        } else if (id == R.id.optTodos) {
+            listItem = allItems;
+        } else return super.onOptionsItemSelected(item);
+
+
+        visibleItems = listItem;
+        createList(visibleItems);
+
         return true;
     }
 
+
     @Override
     public void onItemClick(int position) {
-        Item seleccionado = items.get(position);
+        Item seleccionado = visibleItems.get(position);
         Toast.makeText(this, seleccionado.getNombre(), Toast.LENGTH_SHORT).show();
 
         Bundle b = new Bundle();
@@ -67,12 +111,11 @@ public class MainActivity extends AppCompatActivity implements RvAdapter.OnItemC
         b.putInt("imagen", seleccionado.getImageResId());
 
 
-
         Intent i = new Intent(MainActivity.this, MostInfo.class);
         i.putExtras(b);
         startActivity(i);
     }
 
 
-    }
+}
 
